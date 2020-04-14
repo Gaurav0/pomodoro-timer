@@ -7,4 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('timer');
+  this.route('settings');
+  this.route('history');
 });

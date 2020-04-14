@@ -1,0 +1,33 @@
+:root {
+  --standardgray: #a0a0a0
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+  margin: auto;
+  width: 100vw;
+  max-width: 480px;
+}
+
+h1 {
+  font-size: 1rem;
+  color: green;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 0.6rem;
+  color: var(--standardgray);
+  outline: none;
+}

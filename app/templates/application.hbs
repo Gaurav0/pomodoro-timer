@@ -1,3 +1,17 @@
 <h1>Pomodoro Timer</h1>
 
-{{outlet}}
+<main class="content">
+  {{outlet}}
+</main>
+
+<footer>
+  <div>
+    <button type="button" id="reset" {{on "click" this.reset}}>Reset</button>
+  </div>
+  <div>
+    <button type="button" id="settings" {{on "click" this.settings}}>Settings</button>
+  </div>
+  <div>
+    <button type="button" id="history" {{on "click" this.history}}>History</button>
+  </div>
+</footer>
