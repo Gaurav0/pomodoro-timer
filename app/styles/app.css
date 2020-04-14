@@ -1,5 +1,6 @@
 :root {
-  --standardgray: #a0a0a0
+  --standardgray: #a0a0a0;
+  --highlightedgray: #c0c0c0;
 }
 
 body {
@@ -30,4 +31,8 @@ button {
   font-size: 0.6rem;
   color: var(--standardgray);
   outline: none;
+}
+
+button:hover {
+  color: var(--highlightedgray)
 }
