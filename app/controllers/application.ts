@@ -29,15 +29,20 @@ export default class ApplicationController extends Controller {
   get timeLeft() {
     if (!this.paused && this.timerStarted !== null) {
       return Interval
-        .fromDateTimes(DateTime.local(), this.timerStarted)
-        .toDuration() // should be negative
-        .plus(this.timeLeftWhenStarted);
+        .fromDateTimes(this.timerStarted, DateTime.local())
+        .toDuration() // should be positive
+        .minus(this.timeLeftWhenStarted) // should be negative
+        .negate();
     }
-    return this.timeLeftWhenStarted;
+    if (this.paused) {
+      return this.timeLeftWhenStarted;
+    }
+    throw new Error('Invalid State');
   }
 
   @action
   resetTimer() {
+    this.paused = true;
     this.timerStarted = null;
     this.timeLeftWhenStarted = this.workTime;
   }
@@ -50,8 +55,9 @@ export default class ApplicationController extends Controller {
 
   @action
   pause() {
-    this.paused = true;
     this.timeLeftWhenStarted = this.timeLeft;
+    this.paused = true;
+    this.timerStarted = null;
   }
 
   @action
