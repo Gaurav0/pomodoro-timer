@@ -1,0 +1,3 @@
+<div class="timer-display">{{from-duration @timeLeft}}</div>
+
+<button type="button" id="toggle-start-pause" {{on "click" this.togglePause}}>{{if @paused '>' '||'}}</button>

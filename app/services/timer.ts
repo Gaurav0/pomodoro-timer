@@ -6,11 +6,13 @@ import { DateTime, Duration, Interval } from 'luxon';
 import { toDuration } from '../utils/duration';
 
 export default class TimerService extends Service {
+  @service loop!: Services['loop'];
   @service settings!: Services['settings'];
 
   @tracked paused = true;
   @tracked timerStarted: DateTime | null = null;
   @tracked timeLeftWhenStarted: Duration = toDuration("25:00");
+  @tracked currentTime: Duration = this.timeLeft;
 
   // calculates the amount of time left on the timer.
   // We cannot assume that setTimeout is accurate;
@@ -38,12 +40,14 @@ export default class TimerService extends Service {
   start() {
     this.paused = false;
     this.timerStarted = DateTime.local();
+    this.loop.loop();
   }
 
   pause() {
     this.timeLeftWhenStarted = this.timeLeft;
     this.paused = true;
     this.timerStarted = null;
+    this.loop.cancel();
   }
 }
 

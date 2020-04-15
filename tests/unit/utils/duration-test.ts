@@ -22,7 +22,7 @@ const testValues = [
   new TestValue('25:00', { minutes: 25, seconds:  0 }),
   new TestValue('25:02', { minutes: 25, seconds:  2 }),
   new TestValue('25:34', { minutes: 25, seconds: 34 }),
-]
+];
 
 module('Unit | Utility | duration', function() {
   test('it works', function(assert) {
