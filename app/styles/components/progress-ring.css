@@ -1,0 +1,15 @@
+.progress-ring__container {
+  text-align: center;
+  width: 100%;
+}
+
+.progress-ring {
+  margin: auto;
+  width: 240px;
+  position: relative;
+}
+
+.progress-ring__circle {
+  transform: scaleX(-1) rotate(-90deg);
+  transform-origin: 50% 50%;
+}

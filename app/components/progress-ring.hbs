@@ -1,0 +1,13 @@
+<svg width={{this.width}} height={{this.height}} class="progress-ring" ...attributes>
+  <circle
+    class="progress-ring__circle"
+    stroke={{@strokeColor}}
+    fill="transparent"
+    stroke-dasharray="{{this.circumference}} {{this.circumference}}"
+    style={{concat "stroke-dashoffset: " this.strokeDashOffset ";"}}
+    stroke-width={{@strokeWidth}}
+    r={{this.normalizedRadius}}
+    cx={{@radius}}
+    cy={{@radius}}
+  />
+</svg>

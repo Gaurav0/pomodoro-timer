@@ -1,3 +1,12 @@
+<div class="progress-ring__container">
+  <ProgressRing
+    @radius="120"
+    @strokeWidth="6"
+    @strokeColor={{this.strokeColor}}
+    @percent={{this.percent}}
+  />
+</div>
+
 <div class="timer-display">{{from-duration @timeLeft}}</div>
 
 <button type="button" id="toggle-start-pause" {{on "click" this.togglePause}}>{{if @paused '>' '||'}}</button>

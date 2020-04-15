@@ -10,6 +10,7 @@ export default class TimerService extends Service {
   @service settings!: Services['settings'];
 
   @tracked paused = true;
+  @tracked totalTime = toDuration("25:00");
   @tracked timerStarted: DateTime | null = null;
   @tracked timeLeftWhenStarted: Duration = toDuration("25:00");
   @tracked currentTime: Duration = this.timeLeft;

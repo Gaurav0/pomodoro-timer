@@ -1,3 +1,5 @@
+@import "components/progress-ring.css";
+
 :root {
   --standardgray: #a0a0a0;
   --highlightedgray: #c0c0c0;
@@ -10,6 +12,7 @@ body {
   margin: auto;
   width: 100vw;
   max-width: 480px;
+  text-align: center;
 }
 
 h1 {
@@ -36,4 +39,11 @@ button {
 
 button:hover {
   color: var(--highlightedgray);
+}
+
+.timer-display {
+  font-family: monospace;
+  font-size: 2rem;
+  position: relative;
+  top: -140px;
 }
