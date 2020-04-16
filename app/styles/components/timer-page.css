@@ -1,14 +1,14 @@
 .timer-page__display {
   font-family: monospace;
-  font-size: 2rem;
+  font-size: 4rem;
   position: relative;
-  top: -140px;
+  top: -9.6rem;
 }
 
 #toggle-start-pause {
   position: relative;
-  top: -30px;
-  border: 1px solid gray;
-  padding: 9px 12px;
-  border-radius: 16px;
+  top: -2.5rem;
+  border: 2px solid gray;
+  padding: 1rem 1.2rem;
+  border-radius: 50%;
 }

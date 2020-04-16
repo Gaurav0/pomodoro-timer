@@ -12,27 +12,43 @@ body {
   font-family: sans-serif;
   margin: auto;
   width: 100vw;
-  max-width: 480px;
+  max-width: 30rem;
   text-align: center;
 }
 
 h1 {
-  font-size: 1rem;
+  font-size: 2rem;
   color: green;
   text-align: center;
 }
 
 footer {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
+}
+
+footer > div {
+  display: flex;
+  flex-shrink: 1;
+}
+
+footer > div:nth-child(1) {
+  justify-content: flex-start;
+}
+
+footer > div:nth-child(2) {
+  justify-content: center;
+}
+
+footer > div:nth-child(3) {
+  justify-content: flex-end;
 }
 
 button {
   background-color: transparent;
   border: none;
-  font-size: 0.6rem;
+  font-size: 1.25rem;
   color: var(--standardgray);
   outline: none;
   cursor: pointer;
