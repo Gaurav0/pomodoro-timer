@@ -18,6 +18,6 @@ module('Integration | Helper | from-duration', function(hooks) {
 
     await render(hbs`{{from-duration this.inputValue}}`);
 
-    assert.dom('#timer-display').containsText("03:15");
+    assert.dom().containsText("03:15");
   });
 });

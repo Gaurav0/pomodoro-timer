@@ -7,6 +7,13 @@
   />
 </div>
 
-<div class="timer-display">{{from-duration @timeLeft}}</div>
+<div class="timer-page__display">{{from-duration @timeLeft}}</div>
 
-<button type="button" id="toggle-start-pause" {{on "click" this.togglePause}}>{{if @paused '>' '||'}}</button>
+<button
+  type="button"
+  id="toggle-start-pause"
+  class={{if @paused 'timer-page__start' 'timer-page__pause'}}
+  {{on "click" this.togglePause}}
+>
+  {{if @paused '>' '||'}}
+</button>

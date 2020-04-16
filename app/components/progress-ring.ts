@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 
 interface ProgressRingArgs {
   radius: number;
@@ -17,7 +18,7 @@ export default class ProgressRing extends Component<ProgressRingArgs> {
   }
 
   get strokeDashOffset() {
-    return this.circumference - this.args.percent / 100 * this.circumference;
+    return htmlSafe(`${this.circumference - this.args.percent / 100 * this.circumference}`);
   }
 
   get width() {

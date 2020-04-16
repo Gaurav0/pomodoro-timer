@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { Duration } from 'luxon';
 
-interface TimerPageArgs {
+export interface TimerPageArgs {
   paused: Boolean,
   timeLeft: Duration,
   totalTime: Duration,
