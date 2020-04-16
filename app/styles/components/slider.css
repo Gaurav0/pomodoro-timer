@@ -1,0 +1,75 @@
+input[type="range"].slider {
+  margin: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0; /* iOS */
+  background: var(--backgroundgray);
+  overflow: hidden;
+  outline: none;
+}
+
+.slider::-webkit-slider-runnable-track {
+  background: dodgerblue;
+  height: 20px;
+  border: 8px solid var(--backgroundgray);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: dodgerblue;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  box-shadow: 100vw 0 0 100vw var(--backgroundgray);
+}
+
+.slider::-moz-range-track {
+  background: dodgerblue;
+  height: 20px;
+  border: 8px solid var(--backgroundgray);
+}
+
+.slider::-moz-range-thumb {
+  background: dodgerblue;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  box-shadow: 100vw 0 0 100vw var(--backgroundgray);
+}
+
+.slider::-ms-thumb {
+  background: dodgerblue;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  box-shadow: 100vw 0 0 100vw var(--backgroundgray);
+}
+
+.slider::-ms-ticks-after {
+    display: none;
+}
+
+::-ms-ticks-before {
+    display: none;
+}
+
+::-ms-track {
+  background: dodgerblue;
+  height: 20px;
+  border: 8px solid var(--backgroundgray);
+}
+
+::-ms-tooltip {
+  display: none;
+}

@@ -1,13 +1,16 @@
 @import "components/timer-page.css";
+@import "components/settings-page.css";
 @import "components/progress-ring.css";
+@import "components/slider.css";
 
 :root {
+  --backgroundgray: #303030;
   --standardgray: #a0a0a0;
   --highlightedgray: #c0c0c0;
 }
 
 body {
-  background-color: black;
+  background-color: var(--backgroundgray);
   color: white;
   font-family: sans-serif;
   margin: auto;
@@ -55,4 +58,8 @@ button {
 
 button:hover {
   color: var(--highlightedgray);
+}
+
+.hidden {
+  display: none;
 }

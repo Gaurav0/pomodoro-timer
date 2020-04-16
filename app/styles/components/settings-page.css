@@ -1,0 +1,33 @@
+.group-container {
+  margin: 1rem;
+}
+
+.label-container {
+  margin: 1rem;
+}
+
+.group-label {
+  font-size: 1.2rem;
+}
+
+.textfield-container {
+  margin: 1rem;
+}
+
+.time-input {
+  font-size: 1.2rem;
+  width: 3.2rem;
+  background-color: black;
+  color: var(--highlightedgray);
+  border: none;
+}
+
+.error-container {
+  margin: 0 auto;
+  color: #ff6666;
+}
+
+.slider-container {
+  margin: 1.5rem 0;
+  width: 100%;
+}

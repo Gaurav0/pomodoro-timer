@@ -1,0 +1,31 @@
+<div class="group-container">
+  <div class="label-container">
+    <label class="group-label" for="worktime">Work</label>
+  </div>
+  <div class="textfield-container">
+    <input
+      type="text"
+      pattern="\d\d\:\d\d"
+      title="mm:ss"
+      placeholder="##:##"
+      id="worktime"
+      class="time-input"
+      value={{this.workTime}}
+      {{on 'change' this.workTimeChanged}}
+    />
+  </div>
+  <div class="error-container {{unless this.workTimeError 'hidden'}}">
+    Time must be in mm:ss format.
+  </div>
+  <div class="slider-container">
+    <input
+      type="range"
+      class="slider"
+      min="0"
+      max="3600000"
+      step="30000"
+      value={{this.workTimeInMillis}}
+      {{on 'input' this.workTimeInMillisChanged}}
+    />
+  </div>
+</div>
