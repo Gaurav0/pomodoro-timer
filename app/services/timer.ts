@@ -35,6 +35,7 @@ export default class TimerService extends Service {
   reset() {
     this.paused = true;
     this.timerStarted = null;
+    this.totalTime = this.settings.workTime;
     this.timeLeftWhenStarted = this.settings.workTime;
   }
 

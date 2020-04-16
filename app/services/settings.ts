@@ -5,7 +5,7 @@ import { toDuration } from '../utils/duration';
 
 export default class Settings extends Service {
   @tracked workTime: Duration = toDuration("25:00");
-  @tracked shortBreakTime: Duration = toDuration("5:00");
+  @tracked shortBreakTime: Duration = toDuration("05:00");
   @tracked longBreakTime: Duration = toDuration("15:00");
   @tracked rounds: Number = 4;
 }

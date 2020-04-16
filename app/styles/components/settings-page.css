@@ -1,5 +1,5 @@
 .group-container {
-  margin: 1rem;
+  margin: 3rem;
 }
 
 .label-container {
@@ -30,4 +30,8 @@
 .slider-container {
   margin: 1.5rem 0;
   width: 100%;
+}
+
+.action-buttons {
+  margin: 3rem;
 }

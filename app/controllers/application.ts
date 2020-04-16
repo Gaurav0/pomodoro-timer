@@ -5,7 +5,6 @@ import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
   @service router!: Services['router'];
-  @service timer!: Services['timer'];
 
   // settings
 
@@ -13,8 +12,8 @@ export default class ApplicationController extends Controller {
   // TODO
 
   @action
-  resetTimer() {
-    this.timer.reset();
+  timer() {
+    this.router.transitionTo('timer');
   }
 
   @action

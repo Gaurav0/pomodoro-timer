@@ -1,6 +1,6 @@
 <div class="group-container">
   <div class="label-container">
-    <label class="group-label" for="worktime">Work</label>
+    <label class="group-label" for="work-time">Work</label>
   </div>
   <div class="textfield-container">
     <input
@@ -8,7 +8,7 @@
       pattern="\d\d\:\d\d"
       title="mm:ss"
       placeholder="##:##"
-      id="worktime"
+      id="work-time"
       class="time-input"
       value={{this.workTime}}
       {{on 'change' this.workTimeChanged}}
@@ -28,4 +28,72 @@
       {{on 'input' this.workTimeInMillisChanged}}
     />
   </div>
+</div>
+
+<div class="group-container">
+  <div class="label-container">
+    <label class="group-label" for="short-break-time">Short Break</label>
+  </div>
+  <div class="textfield-container">
+    <input
+      type="text"
+      pattern="\d\d\:\d\d"
+      title="mm:ss"
+      placeholder="##:##"
+      id="short-break-time"
+      class="time-input"
+      value={{this.shortBreakTime}}
+      {{on 'change' this.shortBreakTimeChanged}}
+    />
+  </div>
+  <div class="error-container {{unless this.shortBreakTimeError 'hidden'}}">
+    Time must be in mm:ss format.
+  </div>
+  <div class="slider-container">
+    <input
+      type="range"
+      class="slider"
+      min="0"
+      max="3600000"
+      step="30000"
+      value={{this.shortBreakTimeInMillis}}
+      {{on 'input' this.shortBreakTimeInMillisChanged}}
+    />
+  </div>
+</div>
+
+<div class="group-container">
+  <div class="label-container">
+    <label class="group-label" for="long-break-time">Long Break</label>
+  </div>
+  <div class="textfield-container">
+    <input
+      type="text"
+      pattern="\d\d\:\d\d"
+      title="mm:ss"
+      placeholder="##:##"
+      id="long-break-time"
+      class="time-input"
+      value={{this.longBreakTime}}
+      {{on 'change' this.longBreakTimeChanged}}
+    />
+  </div>
+  <div class="error-container {{unless this.longBreakTimeError 'hidden'}}">
+    Time must be in mm:ss format.
+  </div>
+  <div class="slider-container">
+    <input
+      type="range"
+      class="slider"
+      min="0"
+      max="3600000"
+      step="30000"
+      value={{this.longBreakTimeInMillis}}
+      {{on 'input' this.longBreakTimeInMillisChanged}}
+    />
+  </div>
+</div>
+
+<div class="action-buttons">
+  <button type="button" id="apply-changes" {{on 'click' this.resetTimer}}>Apply Changes and Reset Timer</button>
 </div>
