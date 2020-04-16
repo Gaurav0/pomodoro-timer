@@ -15,5 +15,5 @@
   class={{if @paused 'timer-page__start' 'timer-page__pause'}}
   {{on "click" this.togglePause}}
 >
-  {{if @paused '>' '||'}}
+  <FaIcon @icon={{if @paused 'play' 'pause'}} />
 </button>

@@ -1,3 +1,4 @@
+@import "components/timer-page.css";
 @import "components/progress-ring.css";
 
 :root {
@@ -39,11 +40,4 @@ button {
 
 button:hover {
   color: var(--highlightedgray);
-}
-
-.timer-page__display {
-  font-family: monospace;
-  font-size: 2rem;
-  position: relative;
-  top: -140px;
 }
