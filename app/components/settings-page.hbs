@@ -1,105 +1,26 @@
-<div class="group-container">
-  <div class="label-container">
-    <label class="group-label" for="work-time">Work</label>
-  </div>
-  <div class="textfield-container">
-    <input
-      type="text"
-      pattern="\d\d\:\d\d"
-      title="mm:ss"
-      placeholder="##:##"
-      id="work-time"
-      class="time-input"
-      value={{this.workTime}}
-      {{on 'change' this.workTimeChanged}}
-    />
-  </div>
-  <div class="error-container {{unless this.workTimeError 'hidden'}}">
-    Time must be in mm:ss format.
-  </div>
-  <div class="slider-container">
-    <input
-      type="range"
-      class="slider"
-      min="0"
-      max="3600000"
-      step="30000"
-      value={{this.workTimeInMillis}}
-      {{on 'input' this.workTimeInMillisChanged}}
-    />
-    <div class="track"
-      style={{html-safe (concat "left: " this._workTimeLeft "px;")}}
-      {{did-insert this._setInitialWorkLeft}}
-    >
-    </div>
-  </div>
-</div>
+<SettingsGroup
+  @label="Work"
+  @prefix="work"
+  @sliderColor="yellow"
+  @time={{this.settings.workTime}}
+  @timeChanged={{this.workTimeChanged}}
+/>
 
-<div class="group-container">
-  <div class="label-container">
-    <label class="group-label" for="short-break-time">Short Break</label>
-  </div>
-  <div class="textfield-container">
-    <input
-      type="text"
-      pattern="\d\d\:\d\d"
-      title="mm:ss"
-      placeholder="##:##"
-      id="short-break-time"
-      class="time-input"
-      value={{this.shortBreakTime}}
-      {{on 'change' this.shortBreakTimeChanged}}
-    />
-  </div>
-  <div class="error-container {{unless this.shortBreakTimeError 'hidden'}}">
-    Time must be in mm:ss format.
-  </div>
-  <div class="slider-container">
-    <input
-      type="range"
-      class="slider"
-      min="0"
-      max="3600000"
-      step="30000"
-      value={{this.shortBreakTimeInMillis}}
-      {{on 'input' this.shortBreakTimeInMillisChanged}}
-    />
-    <div class="track"></div>
-  </div>
-</div>
+<SettingsGroup
+  @label="Short Break"
+  @prefix="short-break"
+  @sliderColor="yellow"
+  @time={{this.settings.shortBreakTime}}
+  @timeChanged={{this.shortBreakTimeChanged}}
+/>
 
-<div class="group-container">
-  <div class="label-container">
-    <label class="group-label" for="long-break-time">Long Break</label>
-  </div>
-  <div class="textfield-container">
-    <input
-      type="text"
-      pattern="\d\d\:\d\d"
-      title="mm:ss"
-      placeholder="##:##"
-      id="long-break-time"
-      class="time-input"
-      value={{this.longBreakTime}}
-      {{on 'change' this.longBreakTimeChanged}}
-    />
-  </div>
-  <div class="error-container {{unless this.longBreakTimeError 'hidden'}}">
-    Time must be in mm:ss format.
-  </div>
-  <div class="slider-container">
-    <input
-      type="range"
-      class="slider"
-      min="0"
-      max="3600000"
-      step="30000"
-      value={{this.longBreakTimeInMillis}}
-      {{on 'input' this.longBreakTimeInMillisChanged}}
-    />
-    <div class="track"></div>
-  </div>
-</div>
+<SettingsGroup
+  @label="Long Break"
+  @prefix="long-break"
+  @sliderColor="yellow"
+  @time={{this.settings.longBreakTime}}
+  @timeChanged={{this.longBreakTimeChanged}}
+/>
 
 <div class="action-buttons">
   <button type="button" id="apply-changes" {{on 'click' this.resetTimer}}>Apply Changes and Reset Timer</button>
