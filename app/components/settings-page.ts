@@ -16,6 +16,10 @@ export default class SettingsPage extends Component<SettingsPageArgs> {
   @tracked shortBreakTimeError = false;
   @tracked longBreakTimeError = false;
 
+  @tracked _workTimeLeft = 0;
+  @tracked _shortBreakTimeLeft = 0;
+  @tracked _longBreakTimeLeft = 0;
+
   get workTime() {
     return fromDuration(this.settings.workTime);
   }
@@ -37,8 +41,16 @@ export default class SettingsPage extends Component<SettingsPageArgs> {
 
   @action
   workTimeInMillisChanged(event: InputEvent) {
-    let millis = (event!.target! as HTMLInputElement).value;
-    this.settings.workTime = Duration.fromMillis(+millis);
+    let element = (event!.target! as HTMLInputElement)
+    let millis = +element.value;
+    this._workTimeLeft = calculateLeft(element, millis);
+    this.settings.workTime = Duration.fromMillis(millis);
+  }
+
+  @action
+  _setInitialWorkLeft(element: HTMLElement) {
+    let millis = this.workTimeInMillis;
+    this._workTimeLeft = calculateLeft(element, millis)
   }
 
   get shortBreakTime() {
@@ -95,4 +107,16 @@ export default class SettingsPage extends Component<SettingsPageArgs> {
   resetTimer() {
     this.timer.reset();
   }
+}
+
+const max = 3600000;
+let width = 0;
+
+function calculateLeft(element: HTMLElement, millis: number): number {
+  if (width === 0) {
+    // adjust width for margin
+    width = parseFloat(getComputedStyle(element.parentElement!).width) - 36;
+  }
+  // adjust left for margin + offset
+  return (millis / max) * width + 28;
 }

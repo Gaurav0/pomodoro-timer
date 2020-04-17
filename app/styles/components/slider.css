@@ -1,6 +1,12 @@
+.slider-container {
+  position: relative;
+}
+
 input[type="range"].slider {
   margin: auto;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   position: relative;
   height: 20px;
@@ -10,6 +16,18 @@ input[type="range"].slider {
   background: var(--backgroundgray);
   overflow: hidden;
   outline: none;
+}
+
+.slider+.track {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 10px;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  background: black;
+  z-index: 1;
 }
 
 .slider::-webkit-slider-runnable-track {

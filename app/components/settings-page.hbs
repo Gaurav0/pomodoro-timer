@@ -27,6 +27,11 @@
       value={{this.workTimeInMillis}}
       {{on 'input' this.workTimeInMillisChanged}}
     />
+    <div class="track"
+      style={{html-safe (concat "left: " this._workTimeLeft "px;")}}
+      {{did-insert this._setInitialWorkLeft}}
+    >
+    </div>
   </div>
 </div>
 
@@ -59,6 +64,7 @@
       value={{this.shortBreakTimeInMillis}}
       {{on 'input' this.shortBreakTimeInMillisChanged}}
     />
+    <div class="track"></div>
   </div>
 </div>
 
@@ -91,6 +97,7 @@
       value={{this.longBreakTimeInMillis}}
       {{on 'input' this.longBreakTimeInMillisChanged}}
     />
+    <div class="track"></div>
   </div>
 </div>
 
