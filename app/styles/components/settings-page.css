@@ -24,7 +24,7 @@
 
 .error-container {
   margin: 0 auto;
-  color: #ff6666;
+  color: var(--error);
 }
 
 .slider-container {

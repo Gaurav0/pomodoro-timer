@@ -18,7 +18,7 @@ input[type="range"].slider {
   outline: none;
 }
 
-.slider+.track {
+.slider + .track {
   position: absolute;
   top: 8px;
   left: 0;
@@ -75,11 +75,11 @@ input[type="range"].slider {
 }
 
 .slider::-ms-ticks-after {
-    display: none;
+  display: none;
 }
 
 ::-ms-ticks-before {
-    display: none;
+  display: none;
 }
 
 ::-ms-track {
