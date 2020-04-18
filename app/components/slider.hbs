@@ -1,12 +1,13 @@
-<div class="slider-container" ...attributes>
+<div class="slider-container">
   <input
     type="range"
-    class="slider"
+    class="slider {{@color}}"
     min={{@min}}
     max={{@max}}
     step={{@step}}
     value={{@value}}
     {{on 'input' this.valueChanged}}
+    ...attributes
   />
   <div class="track"
     style={{html-safe (concat "left: " this._left "px;")}}

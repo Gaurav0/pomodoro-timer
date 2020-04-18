@@ -36,6 +36,18 @@ input[type="range"].slider {
   border: 8px solid var(--backgroundgray);
 }
 
+.slider.green::-webkit-slider-runnable-track {
+  background: green;
+}
+
+.slider.red::-webkit-slider-runnable-track {
+  background: red;
+}
+
+.slider.yellow::-webkit-slider-runnable-track {
+  background: yellow;
+}
+
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -48,10 +60,34 @@ input[type="range"].slider {
   box-shadow: 100vw 0 0 100vw var(--backgroundgray);
 }
 
+.slider.green::-webkit-slider-thumb {
+  background: green;
+}
+
+.slider.red::-webkit-slider-thumb {
+  background: red;
+}
+
+.slider.yellow::-webkit-slider-thumb {
+  background: yellow;
+}
+
 .slider::-moz-range-track {
   background: dodgerblue;
   height: 20px;
   border: 8px solid var(--backgroundgray);
+}
+
+.slider.green::-moz-range-track {
+  background: green;
+}
+
+.slider.red::-moz-range-track {
+  background: red;
+}
+
+.slider.yellow::-moz-range-track {
+  background: yellow;
 }
 
 .slider::-moz-range-thumb {
@@ -64,6 +100,18 @@ input[type="range"].slider {
   box-shadow: 100vw 0 0 100vw var(--backgroundgray);
 }
 
+.slider.green::-moz-range-thumb {
+  background: green;
+}
+
+.slider.red::-moz-range-thumb {
+  background: red;
+}
+
+.slider.yellow::-moz-range-thumb {
+  background: yellow;
+}
+
 .slider::-ms-thumb {
   background: dodgerblue;
   width: 20px;
@@ -74,20 +122,44 @@ input[type="range"].slider {
   box-shadow: 100vw 0 0 100vw var(--backgroundgray);
 }
 
+.slider.green::-ms-thumb {
+  background: green;
+}
+
+.slider.red::-ms-thumb {
+  background: red;
+}
+
+.slider.yellow::-ms-thumb {
+  background: yellow;
+}
+
 .slider::-ms-ticks-after {
   display: none;
 }
 
-::-ms-ticks-before {
+.slider::-ms-ticks-before {
   display: none;
 }
 
-::-ms-track {
+.slider::-ms-track {
   background: dodgerblue;
   height: 20px;
   border: 8px solid var(--backgroundgray);
 }
 
-::-ms-tooltip {
+.slider.green::-ms-track {
+  background: green;
+}
+
+.slider.red::-ms-track {
+  background: red;
+}
+
+.slider.yellow::-ms-track {
+  background: yellow;
+}
+
+.slider::-ms-tooltip {
   display: none;
 }
