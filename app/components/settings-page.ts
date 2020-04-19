@@ -26,6 +26,11 @@ export default class SettingsPage extends Component<SettingsPageArgs> {
   }
 
   @action
+  roundsChanged(rounds: number) {
+    this.settings.rounds = rounds;
+  }
+
+  @action
   resetTimer() {
     this.timer.reset();
   }

@@ -7,7 +7,7 @@ export default class Settings extends Service {
   @tracked workTime: Duration = toDuration("25:00");
   @tracked shortBreakTime: Duration = toDuration("05:00");
   @tracked longBreakTime: Duration = toDuration("15:00");
-  @tracked rounds: Number = 4;
+  @tracked rounds: number = 4;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.

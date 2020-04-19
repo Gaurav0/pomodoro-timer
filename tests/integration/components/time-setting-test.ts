@@ -14,7 +14,7 @@ interface TestContext extends OriginalTestContext {
   time: Duration;
 }
 
-module('Integration | Component | settings-group', function(hooks) {
+module('Integration | Component | time-setting', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it works', async function(this: TestContext, assert) {
@@ -27,7 +27,7 @@ module('Integration | Component | settings-group', function(hooks) {
     }
 
     await render(hbs`
-      <SettingsGroup @label="Home" @prefix="home"
+      <TimeSetting @label="Home" @prefix="home"
         @sliderColor="yellow"
         @time={{this.time}}
         @timeChanged={{this.timeChanged}}

@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { Duration } from 'luxon';
 import { fromDuration, toDuration } from '../utils/duration';
 
-interface SettingsGroupArgs {
+interface TimeSettingArgs {
   label: string;
   prefix: string;
   sliderColor: string;
@@ -12,7 +12,7 @@ interface SettingsGroupArgs {
   timeChanged: (duration: Duration) => void;
 }
 
-export default class SettingsGroup extends Component<SettingsGroupArgs> {
+export default class TimeSetting extends Component<TimeSettingArgs> {
   @tracked timeError = false;
 
   get time() {

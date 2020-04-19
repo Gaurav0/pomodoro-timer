@@ -28,8 +28,11 @@ export default class Slider extends Component<SliderArgs> {
       this._width = parseFloat(getComputedStyle(this._trackElement.parentElement!).width) - 36;
     }
 
+    let diff = this.args.max - this.args.min;
+    let value = this.args.value - this.args.min;
+
     // adjust left for margin + offset
-    return (this.args.value / (this.args.max - this.args.min)) * this._width + 28;
+    return (value / diff) * this._width + 28;
   }
 
   @action

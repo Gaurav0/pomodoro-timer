@@ -14,12 +14,19 @@
   margin: 1rem;
 }
 
-.time-input {
+.time-input, .rounds-input {
   font-size: 1.2rem;
-  width: 3.2rem;
   background-color: black;
   color: var(--highlightedgray);
   border: none;
+}
+
+.time-input {
+  width: 3.2rem;
+}
+
+.rounds-input {
+  width: 0.8rem;
 }
 
 .error-container {

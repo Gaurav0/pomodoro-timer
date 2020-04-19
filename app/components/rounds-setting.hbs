@@ -1,0 +1,24 @@
+<div class="group-container" ...attributes>
+  <div class="label-container">
+    <label class="group-label" for="rounds-input">{{@label}}</label>
+  </div>
+  <div class="textfield-container">
+    <input
+      type="text"
+      id="rounds-input"
+      class="rounds-input"
+      value={{@rounds}}
+      {{on 'change' this.roundsInput}}
+    />
+  </div>
+  <div class="error-container {{unless this.roundsError 'hidden'}}">
+    Rounds must be between 1 and 10.
+  </div>
+  <Slider
+    @color={{@sliderColor}}
+    @value={{@rounds}}
+    @min={{1}}
+    @max={{10}}
+    @valueChanged={{this.roundsChanged}}
+  />
+</div>

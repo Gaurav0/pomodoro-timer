@@ -1,4 +1,4 @@
-<SettingsGroup
+<TimeSetting
   @label="Work"
   @prefix="work"
   @sliderColor="green"
@@ -6,7 +6,7 @@
   @timeChanged={{this.workTimeChanged}}
 />
 
-<SettingsGroup
+<TimeSetting
   @label="Short Break"
   @prefix="short-break"
   @sliderColor="yellow"
@@ -14,12 +14,19 @@
   @timeChanged={{this.shortBreakTimeChanged}}
 />
 
-<SettingsGroup
+<TimeSetting
   @label="Long Break"
   @prefix="long-break"
   @sliderColor="red"
   @time={{this.settings.longBreakTime}}
   @timeChanged={{this.longBreakTimeChanged}}
+/>
+
+<RoundsSetting
+  @label="Rounds"
+  @sliderColor="blue"
+  @rounds={{this.settings.rounds}}
+  @roundsChanged={{this.roundsChanged}}
 />
 
 <div class="action-buttons">
