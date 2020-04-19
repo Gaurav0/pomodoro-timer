@@ -1,8 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn } from '@ember/test-helpers';
-// import { tracked } from '@glimmer/tracking';
-// import { defineProperty } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { defineProperty } from '@ember/object';
 import hbs from 'htmlbars-inline-precompile';
 import { TestContext as OriginalTestContext } from 'ember-test-helpers';
 import { Duration } from 'luxon';
@@ -19,11 +19,11 @@ module('Integration | Component | settings-group', function(hooks) {
 
   test('it works', async function(this: TestContext, assert) {
     this.timeChangedCalled = 0;
-    // defineProperty(this, 'time', tracked()); // works but throws TypeScript errors
+    defineProperty(this, 'time', tracked());
     this.time = toDuration("00:00");
     this.timeChanged = (arg: Duration) => {
       this.timeChangedCalled++;
-      this.set('time', arg); // set required since time is not @tracked
+      this.time = arg;
     }
 
     await render(hbs`

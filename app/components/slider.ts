@@ -14,7 +14,14 @@ export default class Slider extends Component<SliderArgs> {
   _width = 0;
   @tracked _trackElement: HTMLElement | null = null;
 
+  // style.left for track of slider
   get _left() {
+
+    // We do not want to recalculate the width of the track every time
+    // as we drag the handle, and it should be the same whenever the component
+    // is rendered so we cache it in this._width.
+    // this._trackElement will not be set on first call while rendering template;
+    // but will be set after {{did-insert}}
     if (this._trackElement !== null && this._width === 0) {
 
       // adjust width for margin
