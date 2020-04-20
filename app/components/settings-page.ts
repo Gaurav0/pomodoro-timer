@@ -32,6 +32,6 @@ export default class SettingsPage extends Component<SettingsPageArgs> {
 
   @action
   resetTimer() {
-    this.timer.reset();
+    this.timer.setup();
   }
 }

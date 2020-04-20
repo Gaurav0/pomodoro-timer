@@ -15,8 +15,14 @@ export default class Loop extends Service {
   }
 
   loop() {
-    this.timerService.currentTime = this.timerService.timeLeft;
-    this._timer = requestAnimationFrame(this._loop);
+    let timeLeft = this.timerService.timeLeft;
+    if (timeLeft.as("milliseconds") <= 0) {
+      this.timerService.alert();
+      this.timerService.next();
+    } else {
+      this.timerService.currentTime = timeLeft;
+      this._timer = requestAnimationFrame(this._loop);
+    }
   }
 
   cancel() {

@@ -1,8 +1,18 @@
 .timer-page__display {
   font-family: monospace;
-  font-size: 4rem;
+  font-size: 3rem;
   position: relative;
-  top: -9.6rem;
+  top: -8rem;
+}
+
+.timer-page__step {
+  font-size: 1.8rem;
+  position: relative;
+  top: -14rem;
+}
+
+.timer-page__rounds {
+  text-align: left;
 }
 
 #toggle-start-pause {

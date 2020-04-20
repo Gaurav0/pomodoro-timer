@@ -4,6 +4,7 @@ import { Registry as Services } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { DateTime, Duration, Interval } from 'luxon';
 import { toDuration } from '../utils/duration';
+import { Step, stepsPerRound, stepAfter } from './settings';
 
 export default class TimerService extends Service {
   @service loop!: Services['loop'];
@@ -14,6 +15,9 @@ export default class TimerService extends Service {
   @tracked timerStarted: DateTime | null = null;
   @tracked timeLeftWhenStarted: Duration = toDuration("25:00");
   @tracked currentTime: Duration = this.timeLeft;
+  @tracked step: Step = stepsPerRound[0];
+  @tracked round: number = 1;
+  @tracked rounds: number = 4;
 
   // calculates the amount of time left on the timer.
   // We cannot assume that setTimeout is accurate;
@@ -35,8 +39,10 @@ export default class TimerService extends Service {
   reset() {
     this.paused = true;
     this.timerStarted = null;
-    this.totalTime = this.settings.workTime;
-    this.timeLeftWhenStarted = this.settings.workTime;
+    let totalTime = this.settings[this.step.duration];
+    this.totalTime = totalTime;
+    this.timeLeftWhenStarted = totalTime;
+    this.currentTime = this.timeLeft;
   }
 
   start() {
@@ -50,6 +56,33 @@ export default class TimerService extends Service {
     this.paused = true;
     this.timerStarted = null;
     this.loop.cancel();
+  }
+
+  alert() {
+    this.pause();
+    // alert the user
+  }
+
+  next() {
+    let { step, round } = this.settings.nextStep(this.step, this.round);
+    let time = this.settings[step.duration]
+    this.timeLeftWhenStarted = time;
+    this.totalTime = time;
+    this.step = step;
+    this.round = round;
+
+    if (this.round === 1 && this.step === stepsPerRound[0]) {
+      this.reset();
+    } else {
+      this.start();
+    }
+  }
+
+  setup() {
+    this.step = stepsPerRound[0];
+    this.round = 1;
+    this.rounds = this.settings.rounds;
+    this.reset();
   }
 }
 
