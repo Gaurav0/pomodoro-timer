@@ -14,7 +14,8 @@
   margin: 1rem;
 }
 
-.time-input, .rounds-input {
+.time-input,
+.rounds-input {
   font-size: 1.2rem;
   background-color: black;
   color: var(--highlightedgray);

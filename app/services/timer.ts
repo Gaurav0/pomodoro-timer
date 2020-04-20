@@ -4,7 +4,7 @@ import { Registry as Services } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { DateTime, Duration, Interval } from 'luxon';
 import { toDuration } from '../utils/duration';
-import { Step, stepsPerRound, stepAfter } from './settings';
+import { Step, stepsPerRound } from './settings';
 
 export default class TimerService extends Service {
   @service loop!: Services['loop'];
@@ -18,6 +18,17 @@ export default class TimerService extends Service {
   @tracked step: Step = stepsPerRound[0];
   @tracked round: number = 1;
   @tracked rounds: number = 4;
+
+  audio: HTMLAudioElement | null = null;
+
+  constructor() {
+    super(...arguments);
+
+    window.addEventListener('load', () => {
+      this.audio = document.getElementById('chimes') as HTMLAudioElement;
+      this.audio.load();
+    });
+  }
 
   // calculates the amount of time left on the timer.
   // We cannot assume that setTimeout is accurate;
@@ -58,9 +69,13 @@ export default class TimerService extends Service {
     this.loop.cancel();
   }
 
+  save() {
+    // save in history
+  }
+
   alert() {
     this.pause();
-    // alert the user
+    this.audio?.play();
   }
 
   next() {

@@ -17,6 +17,7 @@ export default class Loop extends Service {
   loop() {
     let timeLeft = this.timerService.timeLeft;
     if (timeLeft.as("milliseconds") <= 0) {
+      this.timerService.save();
       this.timerService.alert();
       this.timerService.next();
     } else {
