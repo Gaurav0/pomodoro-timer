@@ -56,10 +56,16 @@ button {
   color: var(--standardgray);
   outline: none;
   cursor: pointer;
+  padding-bottom: 0.5rem;
 }
 
 button:hover {
   color: var(--highlightedgray);
+}
+
+button.active {
+  color: var(--highlightedgray);
+  border-bottom: 1px solid var(--highlightedgray);
 }
 
 .hidden {

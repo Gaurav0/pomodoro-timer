@@ -6,12 +6,42 @@
 
 <footer>
   <div>
-    <button type="button" id="timer" {{on "click" this.timer}}>Timer</button>
+    <Link @route="timer" as |link|>
+      <button
+        type="button"
+        id="timer"
+        class="{{if link.isActive 'active'}}"
+        {{on "click" link.transitionTo}}
+      >
+        <FaIcon @icon="clock" aria-hidden="true"/>
+        Timer
+      </button>
+    </Link>
   </div>
   <div>
-    <button type="button" id="settings" {{on "click" this.settings}}>Settings</button>
+    <Link @route="settings" as |link|>
+      <button
+        type="button"
+        id="settings"
+        class="{{if link.isActive 'active'}}"
+        {{on "click" link.transitionTo}}
+      >
+        <FaIcon @icon="cog" aria-hidden="true" />
+        Settings
+      </button>
+    </Link>
   </div>
   <div>
-    <button type="button" id="history" {{on "click" this.history}}>History</button>
+    <Link @route="history" as |link|>
+      <button
+        type="button"
+        id="history"
+        class="{{if link.isActive 'active'}}"
+        {{on "click" link.transitionTo}}
+      >
+        <FaIcon @icon="history" aria-hidden="true" />
+        History
+      </button>
+    </Link>
   </div>
 </footer>

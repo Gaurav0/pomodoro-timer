@@ -13,6 +13,7 @@
 
 .timer-page__rounds {
   text-align: left;
+  padding-left: 0.5rem;
 }
 
 #toggle-start-pause {
