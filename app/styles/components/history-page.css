@@ -1,0 +1,24 @@
+.history-page__entries {
+  list-style-type: none;
+  margin: 2rem 0;
+  padding: 0;
+  display: table;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.history-page__entry {
+  display: table-row;
+}
+
+.history-page__step-label {
+  display: table-cell;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.history-page__time {
+  display: table-cell;
+  text-align: right;
+  padding: 0.5rem;
+}

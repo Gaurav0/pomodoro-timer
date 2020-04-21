@@ -1,0 +1,10 @@
+<div class="history-page" ...attributes>
+  <ul class="history-page__entries">
+    {{#each this.history.entries as |entry|}}
+      <li class="history-page__entry">
+        <span class="history-page__step-label">{{entry.step.label}}</span>
+        <span class="history-page__time">{{from-duration entry.time}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</div>

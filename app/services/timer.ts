@@ -5,10 +5,12 @@ import { tracked } from '@glimmer/tracking';
 import { DateTime, Duration, Interval } from 'luxon';
 import { toDuration } from '../utils/duration';
 import { Step, stepsPerRound } from './settings';
+import HistoryEntry from 'pomodoro-timer/classes/history-entry';
 
 export default class TimerService extends Service {
   @service loop!: Services['loop'];
   @service settings!: Services['settings'];
+  @service history!: Services['history'];
 
   @tracked paused = true;
   @tracked totalTime = toDuration("25:00");
@@ -27,6 +29,8 @@ export default class TimerService extends Service {
     window.addEventListener('load', () => {
       this.audio = document.getElementById('chimes') as HTMLAudioElement;
       this.audio.load();
+
+      Notification.requestPermission();
     });
   }
 
@@ -70,12 +74,22 @@ export default class TimerService extends Service {
   }
 
   save() {
-    // save in history
+    this.history.add(new HistoryEntry(this.step, this.totalTime));
   }
 
   alert() {
     this.pause();
     this.audio?.play();
+
+    let msg;
+    if (this.step === stepsPerRound[0]) {
+      msg = "Focus time over.\nYou can take a break now.";
+    } else {
+      msg = "Break time over.\nTime to focus.";
+    }
+
+    // Will not work in future because not in response to a user gesture.
+    new Notification(msg);
   }
 
   next() {
