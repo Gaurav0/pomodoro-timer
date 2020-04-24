@@ -10,6 +10,8 @@ interface SliderArgs {
   valueChanged: (value: number) => void;
 }
 
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
 export default class Slider extends Component<SliderArgs> {
   _width = 0;
   @tracked _trackElement: HTMLElement | null = null;
@@ -32,7 +34,14 @@ export default class Slider extends Component<SliderArgs> {
     let value = this.args.value - this.args.min;
 
     // adjust left for margin + offset
-    return (value / diff) * this._width + 28;
+    let left = (value / diff) * this._width + 28;
+
+    // adjust for Firefox
+    if (isFirefox) {
+      left = left * 1.05 - 8;
+    }
+
+    return left;
   }
 
   @action

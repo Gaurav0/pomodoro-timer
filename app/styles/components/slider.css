@@ -72,10 +72,15 @@ input[type="range"].slider {
   background: yellow;
 }
 
+.slider::-moz-focus-outer {
+  border: 0;
+}
+
 .slider::-moz-range-track {
   background: dodgerblue;
   height: 20px;
   border: 8px solid var(--backgroundgray);
+  box-sizing: border-box;
 }
 
 .slider.green::-moz-range-track {
@@ -91,10 +96,12 @@ input[type="range"].slider {
 }
 
 .slider::-moz-range-thumb {
+  box-sizing: border-box;
   background: dodgerblue;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border-width: 0;
   position: relative;
   top: -8px;
   box-shadow: 100vw 0 0 100vw var(--backgroundgray);
